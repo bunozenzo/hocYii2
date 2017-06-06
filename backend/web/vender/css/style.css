@@ -1,0 +1,13 @@
+.me_1 {
+    background-color: #ffffff;
+    padding: 1em;
+    margin: 1em 0em;
+}
+.me_1 p{
+    font-size: 1.2em;
+    font-weight: bold;
+    height: 30px;
+    text-align: center;
+    background-color: #c7254e;
+    padding-top: 3px;
+}

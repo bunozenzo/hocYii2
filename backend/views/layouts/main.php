@@ -24,55 +24,33 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'My Company',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link logout']
-            )
-            . Html::endForm()
-            . '</li>';
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 container-left">
+            <div class="me_1">
+                <p>YÊU THÍCH</p>
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="<?php echo Yii::$app->homeUrl.'/product' ?>">Thông tin sản phẩm</a></li>
+                    <li role="presentation"><a href="#">Tin nhắn</a></li>
+                    <li role="presentation"><a href="#">Sự kiện</a></li>
+                    <li role="presentation"><a href="#">Cửa hàng</a></li>
+                    <li role="presentation"><a href="#">Đã lưu</a></li>
+                </ul>
+            </div>
+            <div class="me_1">
+                <p>NHÓM</p>
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="#">CNTT2</a></li>
+                    <li role="presentation"><a href="#">Để thi UTC</a></li>
+                    <li role="presentation"><a href="#">Lập trình php</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 container-right">
+            <?= $content ?>
+        </div>
     </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>
